@@ -1,22 +1,28 @@
 # chatapp
 
-> Socket.io chat app build w/ nuxt
+> This is the project for start2impact
 
-## Build Setup
+## Run the code
 
 ``` bash
-# install dependencies
+# clone repositories.
+$ git clone https://github.com/erik18xk/socket.io-nuxt-chatAPP.git
+
+# navigate into the folder.
+$ cd socket.io-nuxt-chatAPP
+
+# install dependencies.
 $ yarn install
 
-# serve with hot reload at localhost:3000
+# run the dev.
 $ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+## Socket.io
+
+The socket.io server will serve from http://localhost:3001.
+
+## Nuxt
+
+Nuxt ssr will serve from http://localhost:3000
+
