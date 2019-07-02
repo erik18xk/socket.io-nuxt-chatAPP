@@ -22,7 +22,7 @@ $ yarn dev
 
 The socket.io server will serve from http://localhost:3001.
 
-## Nuxt
+## Nuxt
 
-Nuxt ssr will serve from http://localhost:3000
+Nuxt ssr will serve from http://localhost:3000.
 
