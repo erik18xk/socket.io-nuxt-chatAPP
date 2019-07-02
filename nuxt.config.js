@@ -33,6 +33,10 @@ module.exports = {
   env: {
     WS_SOCKET: 'http://localhost:3001'
   },
+
+  router: {
+    middleware: 'check'
+  },
   /*
   ** Nuxt.js modules
   */

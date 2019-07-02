@@ -1,28 +1,18 @@
 <template>
   <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        {{ username }}
-      </h1>
-      <h2 class="subtitle">
-        Socket.io chat app build w/ nuxt
-      </h2>
-      <div class="links">
-        <a
-          target="_blank"
-          class="button--green"
-          v-on:click="updateUsername"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+    <div class="card__wrapper">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title h5"> Inserisci nome utente </div>
+          <div class="card-subtitle text-grey"> Questo è il nome con cui gli altri utenti ti visualizzeranno </div>
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <label class="form-label" for="input-example-1">Name</label>
+            <input class="form-input" type="text" id="input-example-1" placeholder="Name" :value="username" @input="handleChange">
+          </div>
+          <nuxt-link to="/chat"><button class="btn" v-on:click="updateUsername">Inizia a chattare</button></nuxt-link>
+        </div>
       </div>
     </div>
   </div>
@@ -47,11 +37,22 @@ export default {
       this.$store.commit('socket/setUsername', socket)
     },
 
+    handleChange(e) {
+      this.$store.commit('socket/handleChange', e.target.value)
+    }
+
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+
+@import "~/assets/scss/main.scss";
+
+body {
+  background-color: azure !important;
+}
+
 .container {
   margin: 0 auto;
   min-height: 100vh;

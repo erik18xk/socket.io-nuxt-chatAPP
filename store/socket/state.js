@@ -1,4 +1,4 @@
 export default () => ({
     is_typing: false,
-    username: '__mock__',
+    username: '',
 })

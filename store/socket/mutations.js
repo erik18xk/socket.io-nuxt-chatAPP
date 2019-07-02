@@ -1,6 +1,12 @@
 export default {
     setUsername(state, socket) {
-        state.username = 'erikolivero'
-        socket.emit('add user', state.username)
+
+        if (state.username) {
+            socket.emit('add user', state.username)
+        } 
+    },
+
+    handleChange(state, message) {
+        state.username = message
     }
 }
