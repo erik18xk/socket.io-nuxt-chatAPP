@@ -48,6 +48,15 @@ async function start() {
       badge: true
     })
 
+    // Create the login for the online users...
+
+    socket.on('add user', (username) => {
+      consola.success({
+        message: `user ${username} added to the online user`,
+        badge: true,
+      })
+    })
+
     // Emit a consola when user disconnect from the socket.
     socket.on('disconnect', (socket) => {
       consola.ready({

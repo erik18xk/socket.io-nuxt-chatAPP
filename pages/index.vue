@@ -10,9 +10,9 @@
       </h2>
       <div class="links">
         <a
-          v-on:click="setUsername"
           target="_blank"
           class="button--green"
+          v-on:click="updateUsername"
         >
           Documentation
         </a>
@@ -31,11 +31,11 @@
 <script>
 import Logo from '~/components/Logo.vue'
 import socket from "../plugins/socket.io"
-import { mapMutations, mapState } from "vuex"
+import { mapMutations, mapState } from 'vuex'
 
 export default {
   components: {
-    Logo
+    Logo,
   },
   computed: {
     username() {
@@ -43,9 +43,10 @@ export default {
     }
   },
   methods: {
-    ...mapMutations([
-      'setUsername',
-    ])
+    updateUsername() {
+      this.$store.commit('socket/setUsername', socket)
+    },
+
   }
 }
 </script>
