@@ -97,6 +97,25 @@ async function start() {
       })
     })
 
+    // Implement the code for getting the user that is typing.
+
+    socket.on('typing', () => {
+      socket.broadcast.emit('typing', {
+        username: socket.username
+      })
+
+      consola.success({
+        message: `${socket.username} is typing`
+      })
+
+    })
+
+    socket.on('stop typing', () => {
+      socket.broadcast.emit('stop typing', {
+        username: socket.username
+      })
+    })
+
     // Emit a consola when user disconnect from the socket.
     socket.on('disconnect', () => {
 

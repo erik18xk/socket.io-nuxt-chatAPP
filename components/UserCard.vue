@@ -8,7 +8,7 @@
             </div>
             <div class="column col-9">
                 <p> {{ username }} </p>
-                <p> Is typing ... </p>
+                <p v-if="is_typing"> Is typing ... </p>
             </div>
         </div>
     </div>
@@ -19,7 +19,8 @@
 export default {
     name: 'UserCard',
     props: [
-        'username'
+        'username',
+        'is_typing'
     ]
 }
 </script>

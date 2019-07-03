@@ -12,7 +12,7 @@
             </div>
             <div class="wrapper__input">
                 <div class="form-group">
-                    <input class="form-input" type="text" id="input-example-1" placeholder="Name" v-on:keyup.enter="sendMessage">
+                    <input class="form-input" type="text" id="input-example-1" placeholder="Name" v-on:keyup.enter="sendMessage" @keyup="checkTyping">
                     <button v-on:click="sendMessage"> Press me </button>
                 </div>
             </div>
@@ -25,10 +25,14 @@
 import Sidebar from "../components/Sidebar"
 import { mapState } from "vuex"
 import socket from "../plugins/socket.io"
+import _ from "lodash"
 
 export default {
     layout: 'chat',
     name: 'Chat',
+    data: {
+        timeout: null
+    },
     components: {
         Sidebar,
     },
@@ -49,7 +53,16 @@ export default {
                 username: 'you'
             })
         },
+
+        checkTyping() {
+            clearTimeout(this.timeout)
+            socket.emit('typing')
+            this.timeout = setTimeout(function() {
+                socket.emit('stop typing')
+            }, 2000)
+        }
     },
+
 
     mounted() {
 
@@ -68,6 +81,14 @@ export default {
                 message: data.message,
                 username: data.username
             }) 
+        })
+
+        socket.on('typing', (username) => {
+            this.$store.commit('users/userTyping', username)
+        })
+
+        socket.on('stop typing', (username) => {
+            this.$store.commit('users/userStopTyping', username)
         })
     }
 

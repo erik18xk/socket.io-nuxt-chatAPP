@@ -5,7 +5,7 @@
         </div>
         <div class="body__sidebar">
             <div v-for="item in list">
-                <UserCard :username="item.username" />
+                <UserCard :username="item.username" :is_typing="item.is_typing"/>
             </div>
         </div>
     </div>

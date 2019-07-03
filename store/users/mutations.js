@@ -15,6 +15,23 @@ export default {
         })
     },
 
+    userTyping(state, username) {
+
+        let i = state.list.map(item => item.username).indexOf(username.username)
+
+        state.list[i].is_typing = true
+
+        console.log(`${username.username} is typing`)
+    },
+
+
+    userStopTyping(state, username) {
+        let i = state.list.map(item => item.username).indexOf(username.username)
+
+        state.list[i].is_typing = false
+    },
+
+
     userLeft(state, username) {
         let i = state.list.map(item => item.username).indexOf(username.username)
 
