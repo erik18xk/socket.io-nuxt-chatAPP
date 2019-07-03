@@ -41,6 +41,11 @@ export default {
       this.$store.commit('socket/handleChange', e.target.value)
     }
 
+  },
+  mounted() {
+    socket.on('login', (onlineUser) => {
+      this.$store.commit('users/set', onlineUser)
+    }) 
   }
 }
 </script>
@@ -48,10 +53,6 @@ export default {
 <style lang="scss">
 
 @import "~/assets/scss/main.scss";
-
-body {
-  background-color: azure !important;
-}
 
 .container {
   margin: 0 auto;

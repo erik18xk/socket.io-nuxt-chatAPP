@@ -48,6 +48,20 @@ async function start() {
   io.on('connection', (socket) => {
     // Emit a consola when user connect to the socket.
 
+
+    socket.on('new message', (data) => {
+      consola.success({
+        message: `new message from ${socket.username} saing ${data}`,
+        badge: true
+      })
+
+      socket.broadcast.emit('new message', {
+        username: socket.username,
+        message: data
+      })
+
+    })
+
     var addUser = false
 
     // Create the login for the online users...
@@ -66,9 +80,20 @@ async function start() {
 
       addUser = true
 
+      socket.emit('login', {
+        user: onlineUser,
+      })
+
       consola.success({
         message: `online user are ${onlineUser}`,
         badge: true,
+      })
+
+
+      // I should let know that a new user joined the server to all the client that are listening
+
+      socket.broadcast.emit('user joined', {
+        username: socket.username
       })
     })
 
@@ -80,10 +105,15 @@ async function start() {
 
         onlineUser.splice(onlineUser.indexOf(socket.username), 1)
 
-        consola.ready({
-          message: `online user are ${onlineUser}`,
-          badgne: true
+        consola.success({
+          message: `user ${socket.username} left the channel`,
+          badge: true
         })
+
+        socket.broadcast.emit('user left', {
+          username: socket.username
+        })
+
       } else {
         console.log("What da fuck")
       }      
