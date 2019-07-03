@@ -4,8 +4,8 @@
             <h3> Online users {{ username }} </h3>
         </div>
         <div class="body__sidebar">
-            <div v-for="item in list">
-                <UserCard :username="item.username" :is_typing="item.is_typing"/>
+            <div v-for="(item, key) in list" v-bind:key="key">
+                <UserCard :username="item.username" :is_typing="item.is_typing" />
             </div>
         </div>
     </div>

@@ -3,13 +3,12 @@
     <div class="card__wrapper">
       <div class="card">
         <div class="card-header">
-          <div class="card-title h5"> Inserisci nome utente </div>
+          <div class="card-title h1"> Inserisci nome utente </div>
           <div class="card-subtitle text-grey"> Questo è il nome con cui gli altri utenti ti visualizzeranno </div>
         </div>
         <div class="card-body">
           <div class="form-group">
-            <label class="form-label" for="input-example-1">Name</label>
-            <input class="form-input" type="text" id="input-example-1" placeholder="Name" :value="username" @input="handleChange">
+            <input class="form-input" type="text" id="input-username" placeholder="Inserisci nome utente" :value="username" @input="handleChange">
           </div>
           <nuxt-link to="/chat"><button class="btn" v-on:click="updateUsername">Inizia a chattare</button></nuxt-link>
         </div>
@@ -54,6 +53,21 @@ export default {
 
 @import "~/assets/scss/main.scss";
 
+
+.card {
+  padding: 4em 4em;
+}
+
+.form-input {
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.btn {
+  margin-top: 1em;
+  margin-bottom: 1.5em;
+}
+
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -63,25 +77,4 @@ export default {
   text-align: center;
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>

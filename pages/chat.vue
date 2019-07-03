@@ -6,7 +6,7 @@
          <div class="divider-vert"></div>
         <div class="column col-8">
             <div class="wrapper__messages">
-                <div v-for="item in messages">
+                <div v-for="(item, key) in messages" v-bind:key="key">
                     <p><strong> {{ item.username }} </strong><span> {{ item.message }} </span></p>
                 </div>
             </div>
@@ -52,6 +52,8 @@ export default {
                 socket,   
                 username: 'you'
             })
+
+            e.target.value = ''
         },
 
         checkTyping() {
