@@ -7,7 +7,7 @@
                 </figure>
             </div>
             <div class="column col-9">
-                <p> {{ username }} </p>
+                <p v-if="username == username">  {{ username }} </p>
                 <p v-if="is_typing"> Is typing ... </p>
             </div>
         </div>

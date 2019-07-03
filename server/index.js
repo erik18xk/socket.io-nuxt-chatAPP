@@ -46,14 +46,8 @@ async function start() {
   })
 
   io.on('connection', (socket) => {
-    // Emit a consola when user connect to the socket.
-
 
     socket.on('new message', (data) => {
-      consola.success({
-        message: `new message from ${socket.username} saing ${data}`,
-        badge: true
-      })
 
       socket.broadcast.emit('new message', {
         username: socket.username,
@@ -84,10 +78,6 @@ async function start() {
         user: onlineUser,
       })
 
-      consola.success({
-        message: `online user are ${onlineUser}`,
-        badge: true,
-      })
 
 
       // I should let know that a new user joined the server to all the client that are listening
@@ -103,11 +93,6 @@ async function start() {
       socket.broadcast.emit('typing', {
         username: socket.username
       })
-
-      consola.success({
-        message: `${socket.username} is typing`
-      })
-
     })
 
     socket.on('stop typing', () => {
@@ -133,9 +118,7 @@ async function start() {
           username: socket.username
         })
 
-      } else {
-        console.log("What da fuck")
-      }      
+      }     
     })
 
   })

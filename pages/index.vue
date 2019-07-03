@@ -7,10 +7,12 @@
           <div class="card-subtitle text-grey"> Questo è il nome con cui gli altri utenti ti visualizzeranno </div>
         </div>
         <div class="card-body">
-          <div class="form-group">
+          <div class="form-group " v-bind:class="{'has-error' : hasError } ">
             <input class="form-input" type="text" id="input-username" placeholder="Inserisci nome utente" :value="username" @input="handleChange">
+            <p class="form-input-hint">Devi inserire un nome utente valido </p>
           </div>
           <nuxt-link to="/chat"><button class="btn" v-on:click="updateUsername">Inizia a chattare</button></nuxt-link>
+          <p> Attenzione questa chat di testo non dispone di database e non utilizza cookies, quindi una volta aggiornata o chiusa la chat, i messaggi saranno eliminati e non sarà possibile recuperarli </p>
         </div>
       </div>
     </div>
@@ -27,8 +29,14 @@ export default {
     Logo,
   },
   computed: {
+
+    // Fix with ...mapState
+
     username() {
       return this.$store.state.socket.username
+    },
+    hasError() {
+      return this.$store.state.socket.hasError
     }
   },
   methods: {
@@ -65,10 +73,11 @@ export default {
 
 .btn {
   margin-top: 1em;
-  margin-bottom: 1.5em;
+  margin-bottom: 2.5em;
 }
 
 .container {
+  max-width: 920px;
   margin: 0 auto;
   min-height: 100vh;
   display: flex;

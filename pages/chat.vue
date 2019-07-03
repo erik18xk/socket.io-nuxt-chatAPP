@@ -1,5 +1,5 @@
 <template>
-    <div class="columns">
+    <div class="columns col-gapless">
         <div class="column col-2">
             <Sidebar />
         </div>
@@ -13,7 +13,6 @@
             <div class="wrapper__input">
                 <div class="form-group">
                     <input class="form-input" type="text" id="input-example-1" placeholder="Name" v-on:keyup.enter="sendMessage" @keyup="checkTyping">
-                    <button v-on:click="sendMessage"> Press me </button>
                 </div>
             </div>
         </div>
@@ -61,7 +60,7 @@ export default {
             socket.emit('typing')
             this.timeout = setTimeout(function() {
                 socket.emit('stop typing')
-            }, 2000)
+            }, 1000)
         }
     },
 
@@ -96,4 +95,31 @@ export default {
 
 }
 </script>
+
+<style lang="scss" scoped>
+
+@import "~/assets/scss/main.scss";
+
+.wrapper__messages {
+    max-height: 76vh;
+    min-height: 76vh;
+    overflow-y: auto !important;
+}
+
+.wrapper__input {
+    min-height: 10vh;
+    flex-flow: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    input {
+        margin: 0;
+        padding: 0;
+    }
+
+}
+
+
+</style>
+
 
