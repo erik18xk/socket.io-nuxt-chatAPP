@@ -1,20 +1,25 @@
 <template>
-  <div class="container">
-    <div class="card__wrapper">
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title h1"> Inserisci nome utente </div>
-          <div class="card-subtitle text-grey"> Questo è il nome con cui gli altri utenti ti visualizzeranno </div>
-        </div>
-        <div class="card-body">
-          <div class="form-group " v-bind:class="{'has-error' : hasError } ">
-            <input class="form-input" type="text" id="input-username" placeholder="Inserisci nome utente" :value="username" @input="handleChange">
-            <p class="form-input-hint">Devi inserire un nome utente valido </p>
+  <div>
+    <div class="container hide-lg">
+      <div class="card__wrapper">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title h1"> Inserisci nome utente </div>
+            <div class="card-subtitle text-grey"> Questo è il nome con cui gli altri utenti ti visualizzeranno </div>
           </div>
-          <nuxt-link to="/chat"><button class="btn" v-on:click="updateUsername">Inizia a chattare</button></nuxt-link>
-          <p> Attenzione questa chat di testo non dispone di database e non utilizza cookies, quindi una volta aggiornata o chiusa la chat, i messaggi saranno eliminati e non sarà possibile recuperarli </p>
+          <div class="card-body">
+            <div class="form-group " v-bind:class="{'has-error' : hasError } ">
+              <input class="form-input" type="text" id="input-username" placeholder="Inserisci nome utente" :value="username" @input="handleChange">
+              <p class="form-input-hint">Devi inserire un nome utente valido </p>
+            </div>
+            <nuxt-link to="/chat"><button class="btn" v-on:click="updateUsername">Inizia a chattare</button></nuxt-link>
+            <p> Attenzione questa chat di testo non dispone di database e non utilizza cookies, quindi una volta aggiornata o chiusa la chat, i messaggi saranno eliminati e non sarà possibile recuperarli </p>
+          </div>
         </div>
       </div>
+    </div>
+    <div class="wrapper__error show-lg">
+      <h1> Ci scusiamo per il disguido ma questa applicazione funziona solamente su schermi grandi </h1>
     </div>
   </div>
 </template>
@@ -61,6 +66,9 @@ export default {
 
 @import "~/assets/scss/main.scss";
 
+body {
+  background-color: #f1f3f5 !important;
+}
 
 .card {
   padding: 4em 4em;

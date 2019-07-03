@@ -1,24 +1,20 @@
 <template>
-    <div class="wrapper__chat">
-        <Header />
-        <main>
-            <nuxt />
-        </main>
-        <footer>
-            <h1> This is the footer of the page </h1>
-        </footer>
+    <div>
+        <div class="wrapper__chat hide-lg">
+            <main>
+                <nuxt />
+            </main>
+        </div>
+        <div class="wrapper__error show-lg">
+            <h1> Ci scusiamo per il disguido ma questa applicazione funziona solamente su schermi grandi </h1>
+        </div>
     </div>
 </template>
 
 <script>
 
-import Header from "../components/Header"
-
 export default {
     name: 'chat',
-    components: {
-        Header,
-    }
 }
 </script>
 
@@ -27,22 +23,29 @@ export default {
 
 
 body {
-    overflow: auto;
+    overflow: hidden !important;
 }
 
-main {
-    min-height: 86vh;
-}
 
 .wrapper__chat {
-    max-width: 1440px;
+    max-width: 1280px;
+    min-width: 960px;
     margin: 0 auto;
-    min-height: 100vh;
-    max-height: 100vh;
+    height: 100vh;
+    background-color: #fff !important;
+
+    main {
+        height: 100vh;
+    }
+
 }
 
-footer {
-    min-height: 6vh;
+.wrapper__error {
+    padding: 1.20rem 2rem 1.20rem 2rem;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
 }
 
 </style>
