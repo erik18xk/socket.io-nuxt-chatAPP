@@ -47,11 +47,11 @@ async function start() {
 
   io.on('connection', (socket) => {
 
-    socket.on('new message', (data) => {
+    socket.on('new message', (message) => {
 
       socket.broadcast.emit('new message', {
         username: socket.username,
-        message: data
+        message: message
       })
 
     })

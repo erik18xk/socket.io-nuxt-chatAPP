@@ -42,6 +42,6 @@ export default {
         console.log(`User ${username.username} left`)
         console.log(typeof(state.list))
         console.log(state.list)
-    }
+    },
 
 }

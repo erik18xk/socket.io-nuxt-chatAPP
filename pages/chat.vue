@@ -12,7 +12,7 @@
             <div class="divider"></div>
             <section class="wrapper__input">
                 <div class="input-group">
-                    <input class="form-input" type="text" id="input-example-1" placeholder="Inserisci messaggio qui" v-on:keyup.enter="sendMessage" @keyup="checkTyping">
+                    <input class="form-input" type="text" id="input-example-1" placeholder="Inserisci messaggio qui" :value="message" v-on:keyup.enter="sendMessage" @keyup="checkTyping" @input="handleChange">
                     <button class="btn btn-primary input-group-btn" v-on:click="sendMessage">Invia</button>
                 </div>
                 <p class="wrapper__markdown"> #TODO adding <strong> **bold </strong> markdown system for the messages, for send a <strong> message </strong> just hit the enter or use the submit button </p>
@@ -31,8 +31,10 @@ import _ from "lodash"
 export default {
     layout: 'chat',
     name: 'Chat',
-    data: {
-        timeout: null
+    data: function() {
+        return {
+            timeout: null
+        }
     },
     components: {
         Sidebar,
@@ -50,12 +52,12 @@ export default {
         sendMessage(e) {
             this.$store.commit('messages/addMessage', {
                 // I destruct the payload argument for passing socket and the message to the mutation
-                message: e.target.value,
+                message: this.message,
                 socket,   
                 username: 'you'
             })
 
-            e.target.value = ''
+            this.$store.commit('messages/messageSend')
         },
 
         checkTyping() {
@@ -65,6 +67,11 @@ export default {
                 socket.emit('stop typing')
             }, 1000)
         },
+
+        handleChange(e) {
+            this.$store.commit('messages/handleChange', e.target.value)
+        }
+
     },
 
 
@@ -78,10 +85,10 @@ export default {
             this.$store.commit('users/userLeft', username)
         })
 
-        socket.on('new message', (data) => {
+        socket.on('new message', (message) => {
             this.$store.commit('messages/receivedMessage', {
-                message: data.message,
-                username: data.username
+                message: message.message,
+                username: message.username
             }) 
         })
 

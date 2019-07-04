@@ -21,5 +21,13 @@ export default {
             username: username
         })
 
-    }
+    },
+
+    handleChange(state, message) {
+        state.message = message
+    },
+
+    messageSend(state) {
+        state.message = ''
+    },
 }
