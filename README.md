@@ -14,8 +14,11 @@ $ cd socket.io-nuxt-chatAPP
 # install dependencies.
 $ yarn install
 
-# run the dev.
-$ yarn dev
+# run the build.
+$ yarn build
+
+# start server.
+$ yarn start
 ```
 
 ## Socket.io
