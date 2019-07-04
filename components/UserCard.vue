@@ -8,7 +8,7 @@
         <div class="info__wrapper">
             <p v-if="username == user"> <strong> you </strong> </p>
             <p v-else>  {{ username }} </p>
-            <p v-if="is_typing" class="is_typing"> Is typing ... </p>
+            <p v-if="is_typing" class="is_typing"> Sta scrivendo... </p>
         </div>
     </div>
 </template>
