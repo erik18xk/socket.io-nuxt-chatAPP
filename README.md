@@ -1,4 +1,4 @@
-# chatapp
+# Chat Application S2I project
 
 ![](ChatVideo.gif)
 
@@ -25,7 +25,7 @@ $ yarn start
 
 ## Socket.io
 
-The socket.io server will serve from http://localhost:3001.
+The socket.io server will serve from http://localhost:8000.
 
 ## Nuxt
 
