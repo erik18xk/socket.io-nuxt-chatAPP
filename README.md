@@ -26,3 +26,6 @@ The socket.io server will serve from http://localhost:3001.
 
 Nuxt ssr will serve from http://localhost:3000.
 
+## Keep working
+
+Questo è un elenco di funzionalità che dovrebbero ancora essere implementate https://www.notion.so/erikolivero/Chap-App-64684bae186d4aaba71dd5116e5ecb88
