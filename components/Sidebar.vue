@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="footer__sidebar">
-            <a href="http://www.google.it"> GitHub repo </a>
+            <a href="https://github.com/erik18xk/socket.io-nuxt-chatAPP"> GitHub repo </a>
         </div>
     </div>
 </template>
