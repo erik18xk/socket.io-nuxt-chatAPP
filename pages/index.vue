@@ -9,7 +9,7 @@
           </div>
           <div class="card-body">
             <div class="form-group " v-bind:class="{'has-error' : hasError } ">
-              <input class="form-input" type="text" id="input-username" placeholder="Inserisci nome utente" :value="username" @input="handleChange">
+              <input class="form-input" type="text" id="input-username" placeholder="Inserisci nome utente" :value="username" @input="handleChange" autocomplete="new-password">
               <p class="form-input-hint">Devi inserire un nome utente valido </p>
             </div>
             <nuxt-link to="/chat"><button class="btn" v-on:click="updateUsername">Inizia a chattare</button></nuxt-link>

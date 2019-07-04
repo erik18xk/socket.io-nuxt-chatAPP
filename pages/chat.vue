@@ -12,7 +12,7 @@
             <div class="divider"></div>
             <section class="wrapper__input">
                 <div class="input-group">
-                    <input class="form-input" type="text" id="input-example-1" placeholder="Inserisci messaggio qui" :value="message" v-on:keyup.enter="sendMessage" @keyup="checkTyping" @input="handleChange">
+                    <input class="form-input" type="text" id="input-example-1" placeholder="Inserisci messaggio qui" :value="message" v-on:keyup.enter="sendMessage" @keyup="checkTyping" @input="handleChange" autocomplete="new-password" >
                     <button class="btn btn-primary input-group-btn" v-on:click="sendMessage">Invia</button>
                 </div>
                 <p class="wrapper__markdown"> #TODO adding <strong> **bold </strong> markdown system for the messages, for send a <strong> message </strong> just hit the enter or use the submit button </p>
