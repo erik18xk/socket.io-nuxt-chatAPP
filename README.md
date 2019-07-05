@@ -34,3 +34,11 @@ Nuxt ssr will serve from http://localhost:3000.
 ## Keep working
 
 Questo è un elenco di funzionalità che dovrebbero ancora essere implementate https://www.notion.so/erikolivero/Chap-App-64684bae186d4aaba71dd5116e5ecb88
+
+# WHAT I'VE LEARNED
+
+1. Nuxt framework
+2. Middleware
+3. Vuex store, mutations, getters, actions
+4. Socket.io w/ express
+5. Sccket.io-client
